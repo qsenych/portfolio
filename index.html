@@ -24,13 +24,8 @@
     <div class="row">
       <nav class="nav" role="navigation">
         <ul class="nav__items">
-          <li class="nav__item"><a href="#work" class="nav__link">Work</a></li>
-          <li class="nav__item">
-            <a href="#about" class="nav__link">About</a>
-          </li>
-          <li class="nav__item">
-            <a href="#contact" class="nav__link">Contact</a>
-          </li>
+          <li class="nav__item"><a href="#work" class="nav__link">Projects</a></li>
+          <li class="nav__item"> <a href="#about" class="nav__link">About</a> </li>
         </ul>
       </nav>
     </div>
@@ -42,7 +37,7 @@
         </h1>
         <!-- Put a small paragraph about yourself -->
         <p>A computer engineering student at UBC</p>
-        <a href="#contact" class="btn btn--pink">Get in touch</a>
+        <a href="mailto:quinn@senych.ca" class="btn btn--pink">quinn@senych.ca</a>
       </div>
     </div>
   </header>
@@ -53,16 +48,16 @@
 
     <section class="work" id="work">
       <div class="row">
-        <h2>My Work</h2>
+        <h2>My Projects</h2>
         <div class="work__boxes">
 
           <!-- Each div with the work__box class is a project. -->
 
           <div class="work__box">
             <div class="work__text">
-              <h3>F1tenth</h3>
+              <h3>F1tenth autonomous car racing</h3>
               <p>
-                1/10th scale F1 autonomous car racing.
+                1/10th scale F1 autonomous car racing through UBC.
               </p>
               <ul class="work__list">
                 <li>C++</li>
@@ -73,7 +68,7 @@
 
               <div class="work__links">
                 <!-- <a href="https://github.com/qsenych/a_speed-red-calf-racing/tree/main" target="_blank" class="link__text"> -->
-                <a href="./f1tenth/" target="_blank" class="link__text"> 
+                <a href="./f1tenth/" class="link__text"> 
                   View project <span>&rarr;</span>
                 </a>
               </div>
@@ -85,20 +80,18 @@
 
           <div class="work__box">
             <div class="work__text">
-              <h3>Calculator</h3>
+              <h3>Custom motorcycle dashboard</h3>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod,
-                eius.
+                Custom dashboard built for my design team: UBC thunderbikes.
               </p>
               <ul class="work__list">
-                <li>React</li>
-                <li>Next.js</li>
-                <li>Node</li>
-                <li>MongoDB</li>
+                <li>STM32 HAL</li>
+                <li>LVGL (Light and Versitile Graphics Libary)</li>
+                <li>LTDC (LCD-TFT Display Controller)</li>
               </ul>
 
               <div class="work__links">
-                <a href="#" class="link__text">
+                <a href="./dashboard/" class="link__text">
                   Visit Site <span>&rarr;</span>
                 </a>
                 <a href="#">
@@ -107,29 +100,27 @@
               </div>
             </div>
             <div class="work__image-box">
-              <img src="./images/project-2.png" class="work__image" alt="Project 1" />
+              <img src="./images/dashboard.JPG" class="work__image" alt="Project 1" />
             </div>
           </div>
 
           <div class="work__box">
             <div class="work__text">
-              <h3>Notificator</h3>
+              <h3>UBC events finder</h3>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod,
-                eius.
+                A capable full stack webapp to find free food events at UBC (Will take several minutes to load)
               </p>
               <ul class="work__list">
-                <li>React</li>
-                <li>Next.js</li>
+                <li>Golang</li>
                 <li>Node</li>
-                <li>MongoDB</li>
+                <li>JS/TS</li>
               </ul>
 
               <div class="work__links">
-                <a href="#" class="link__text">
+                <a href="https://ubc-events-finder.vercel.app/" class="link__text">
                   Visit Site <span>&rarr;</span>
                 </a>
-                <a href="#">
+                <a href="https://github.com/kryptoish/UBC-Events-Finder">
                   <img src="./images/github.svg" class="work__code" title="View Source Code" alt="GitHub">
                 </a>
               </div>
@@ -153,7 +144,9 @@
             <!-- Replace the below paragraph with info about yourself -->
             <p>
               I'm a fourth year computer engineering student at the University of British Columbia.
-              I specialize in firmware development and electrical design, but I can be fascinated by all kinds of industries.
+              I have a strong foundation in firmware development through my projects and education,
+              with additional experience in electrical design through my previous Co-op positions.
+              Please view my resume to see more details.
             </p>
             <!-- Provide a link to your resume -->
             <a href="./resume.pdf" class="btn">My Resume</a>
@@ -168,20 +161,6 @@
     </section>
   </main>
 
-  <!-- ***** Contact ***** -->
-
-  <section class="contact" id="contact">
-    <div class="row">
-      <h2>Get in Touch</h2>
-      <div class="contact__info">
-        <p>
-          Please send me an email or give me a call to get in touch
-        </p>
-        <!-- Replace the email with yours -->
-        <a href="mailto:quinn@senych.ca" class="btn">quinn@senych.ca</a>
-      </div>
-    </div>
-  </section>
 
   <!-- ***** Footer ***** -->
 
