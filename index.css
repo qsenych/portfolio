@@ -399,6 +399,40 @@ body:not(.user-is-tabbing) a:focus {
     background: var(--pink);
 }
 
+.nav__item--dropdown {
+    position: relative;
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  z-index: 999;
+  min-width: 200px;
+}
+
+.nav__item--dropdown:hover .dropdown {
+  display: block;
+}
+
+.dropdown__link {
+  display: block;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  color: var(--white-1);
+  white-space: nowrap;
+  font-family: 'Jost', sans-serif;
+}
+
+.dropdown__link:hover {
+  background: var(--pink);
+  color: var(--black);
+}
+
 /* --------------------------------------- */
 /* ----- Header ----- */
 /* --------------------------------------- */

@@ -24,7 +24,14 @@
     <div class="row">
       <nav class="nav" role="navigation">
         <ul class="nav__items">
-          <li class="nav__item"><a href="#work" class="nav__link">Projects</a></li>
+          <li class="nav__item nav__item--dropdown">
+            <a href="#work" class="nav__link">Projects ▾</a>
+            <ul class="dropdown">
+              <li><a href="#f1tenth" class="dropdown__link">F1tenth</a></li>
+              <li><a href="#dashboard" class="dropdown__link">Dashboard</a></li>
+              <li><a href="#img_transform" class="dropdown__link">Image Transformer</a></li>
+            </ul>
+          </li>
           <li class="nav__item"> <a href="#about" class="nav__link">About</a> </li>
         </ul>
       </nav>
@@ -48,90 +55,96 @@
 
     <section class="work" id="work">
       <div class="row">
-        <h2>My Projects</h2>
+        <h2>Project Showcase</h2>
         <div class="work__boxes">
 
           <!-- Each div with the work__box class is a project. -->
+          <section id="f1tenth">
+            <div class="work__box">
+              <div class="work__text">
+                <h3>F1tenth autonomous race car</h3>
+                <p>
+                  1/10th scale autonomous car racing reactive algorithm development.
+                </p>
+                <ul class="work__list">
+                  <li>C++</li>
+                  <li>ROS2</li>
+                  <li>LiDAR</li>
+                  <li>SLAM</li>
+                </ul>
 
-          <div class="work__box">
-            <div class="work__text">
-              <h3>F1tenth autonomous car racing</h3>
-              <p>
-                1/10th scale F1 autonomous car racing through UBC.
-              </p>
-              <ul class="work__list">
-                <li>C++</li>
-                <li>ROS2</li>
-                <li>LiDAR</li>
-                <li>something else</li>
-              </ul>
-
-              <div class="work__links">
-                <!-- <a href="" target="_blank" class="link__text"> -->
-                <a href="./f1tenth/" class="link__text"> 
-                  View project <span>&rarr;</span>
-                </a>
-                <a href="https://github.com/qsenych/a_speed-red-calf-racing" target="_blank">
-                  <img src="./images/github.svg" class="work__code" title="View Source Code" alt="GitHub">
-                </a>
+                <div class="work__links">
+                  <!-- <a href="" target="_blank" class="link__text"> -->
+                  <a href="./f1tenth/" class="link__text"> 
+                    View project <span>&rarr;</span>
+                  </a>
+                  <a href="https://github.com/qsenych/a_speed-red-calf-racing" target="_blank">
+                    <img src="./images/github.svg" class="work__code" title="View Source Code" alt="GitHub">
+                  </a>
+                </div>
+              </div>
+              <div class="work__image-box">
+                <img src="./images/f1tenth.JPG" class="work__image" alt="f1tenth project" />
               </div>
             </div>
-            <div class="work__image-box">
-              <img src="./images/f1tenth.JPG" class="work__image" alt="f1tenth project" />
-            </div>
-          </div>
+          </section>
 
-          <div class="work__box">
-            <div class="work__text">
-              <h3>Custom motorcycle dashboard</h3>
-              <p>
-                Custom dashboard built for my design team: UBC thunderbikes.
-              </p>
-              <ul class="work__list">
-                <li>STM32 HAL</li>
-                <li>LVGL (Light and Versitile Graphics Libary)</li>
-                <li>LTDC (LCD-TFT Display Controller)</li>
-              </ul>
+          <section id="dashboard">
+            <div class="work__box">
+              <div class="work__text">
+                <h3>Custom motorcycle dashboard</h3>
+                <p>
+                  Custom dashboard built for my design team: UBC thunderbikes.
+                </p>
+                <ul class="work__list">
+                  <li>STM32 HAL</li>
+                  <li>LVGL (Light and Versitile Graphics Libary)</li>
+                  <li>LTDC (LCD-TFT Display Controller)</li>
+                </ul>
 
-              <div class="work__links">
-                <a href="./dashboard/" class="link__text">
-                  Visit Site <span>&rarr;</span>
-                </a>
-                <a href="#">
-                  <img src="./images/github.svg" class="work__code" title="View Source Code" alt="GitHub">
-                </a>
+                <div class="work__links">
+                  <a href="./dashboard/" class="link__text">
+                    Visit Site <span>&rarr;</span>
+                  </a>
+                  <a href="#">
+                    <img src="./images/github.svg" class="work__code" title="View Source Code" alt="GitHub">
+                  </a>
+                </div>
+              </div>
+              <div class="work__image-box">
+                <img src="./images/dashboard.JPG" class="work__image" alt="Project 1" />
               </div>
             </div>
-            <div class="work__image-box">
-              <img src="./images/dashboard.JPG" class="work__image" alt="Project 1" />
-            </div>
-          </div>
-          
-          <div class="work__box">
-            <div class="work__text">
-              <h3>Image transformer</h3>
-              <p>
-                A program that corrects the rotation on an image.
-              </p>
-              <ul class="work__list">
-                <li>Java</li>
-                <li>Gradle</li>
-                <li>FFT (Fast fourier transforms)</li>
-              </ul>
+          </section>
 
-              <div class="work__links">
-                <a href="./img_transform" class="link__text">
-                  Visit Site <span>&rarr;</span>
-                </a>
-                <a href="https://github.com/qsenych/image_tranformer-CPEN221-assignment" target="_blank">
-                  <img src="./images/github.svg" class="work__code" title="View Source Code" alt="GitHub">
-                </a>
+
+          <section id="img_transform"> 
+            <div class="work__box">
+              <div class="work__text">
+                <h3>Image transformer</h3>
+                <p>
+                  A program that corrects the rotation on an image.
+                </p>
+                <ul class="work__list">
+                  <li>Java</li>
+                  <li>Gradle</li>
+                  <li>FFT (Fast fourier transforms)</li>
+                </ul>
+
+                <div class="work__links">
+                  <a href="./img_transform" class="link__text">
+                    Visit Site <span>&rarr;</span>
+                  </a>
+                  <a href="https://github.com/qsenych/image_tranformer-CPEN221-assignment" target="_blank">
+                    <img src="./images/github.svg" class="work__code" title="View Source Code" alt="GitHub">
+                  </a>
+                </div>
+              </div>
+              <div class="work__image-box">
+                <img src="./images/project-3.png" class="work__image" alt="Project 3" />
               </div>
             </div>
-            <div class="work__image-box">
-              <img src="./images/project-3.png" class="work__image" alt="Project 3" />
-            </div>
-          </div>
+          </section>
         </div>
       </div>
     </section>
@@ -177,7 +190,7 @@
           </a>
         </li>
         <li class="footer__social-link-item">
-          <a href=https://www.linkedin.com/in/quinn-senych/">
+          <a href="https://www.linkedin.com/in/quinn-senych/" target="_blank">
             <img src="./images/linkedin.svg" title="Link to Linkedin Profile" class="footer__social-image" alt="Linkedin">
           </a>
         </li>
