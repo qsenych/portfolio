@@ -404,8 +404,14 @@ body:not(.user-is-tabbing) a:focus {
 /* --------------------------------------- */
 
 .header {
+    background: var(--black);
+    height: auto;
     font-size: var(--font-size-normal);
     padding: var(--gutter-medium) 0 var(--gutter-normal);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--gutter-normal) 0;
 }
 
 .header__text {
