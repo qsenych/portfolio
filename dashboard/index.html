@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="shortcut icon" type="image/png" href="./images/favicon.png" />
+  <link rel="shortcut icon" type="image/png" href="../images/favicon.png" />
 
   <title>
     Quinn Senych | Dashboard project
@@ -46,12 +46,33 @@
   <section class="Project overview" id="project">
     <div class="row">
       <h3>Overview</h3>
-      <div class="overview_body">
-        <p>
-          This project utilized C and was built on an STM32F767 dev board.         
-        </p>
-        <a href="https://github.com/qsenych/a_speed-red-calf-racing" target="_blank" class="btn">View Repo</a>
-    </div>
+      <p>
+        For context this was built for my design team <a href="https://www.ubcthunderbikes.com" target="_blank">UBC ThunderBikes</a>. The target of the design team is to build an electric motorcycle to race against other student teams.
+
+        For our 2024 iteration I was tasked with creating a dashboard to display real time diagnostic information in addition to supplying the rider with all necessary information while racing. 
+
+      </p>
+      <h3>Part Selection</h3>
+      <p>
+        With the end goal of designing a custom PCB with board mounted switches to simplify assembly, I sought out a microcontroller. As the team has used STM32's for all previous projects and that was the tech stack I was familiar with, it was decided I would stick within the STM32 ecosystem.
+      </p>
+      <p>
+        Because this was my first time writing anything similar to this, I wasnted to simplify the development as much as possible and leave room for optimizations later. And because it's easier to change the firmware than the hardware, I selected a display on the smaller size (3.5", 320x240) but still with a 24-bit parallel interface with the intention of only dealing with a single frame buffer which incorporates the entire screen. So, my requirements for selecting a microcontroller were that it must have enough storage to buffer 1 full screen of data, ideally in memory, not flash (for speed). Also trying to maximize use of the STM32's extensive HAL, I decided using the built in LCD-TFT controller would simplify the project not having to integrate another 3rd party library. So now we were looking at finding an STM32 with a lot of memory and support for the LTDC. 
+      </p>
+      <p>
+        We selected LVGL as the graphics library for its extensive documentation and examples that showed similar applications to ours.
+      </p>
+      <h3>Prototype creation </h3>
+      <p>
+        Despite the end goal being a PCB, I wanted to ensure my tech stack of LVGL -> STM32 LTDC -> parallel display actually worked before I spent time and money desinging a PCB for this. THerefore I selected an STM32 with a nucleo development board (STM32F767ZI), I then found a small breakout module for the ribbon cable (pictured below) so I could do all the soldering myself.
+      </p>
+      <h3>Problems</h3>
+        In the first prototype I soldered the ~30 or so wires from the display to the microcontroller.
+      <p>
+
+      </p>
+      
+      <a href="https://github.com/qsenych/a_speed-red-calf-racing" target="_blank" class="btn">View Repo</a>
   </section>
 
   <!-- ***** Footer ***** -->
@@ -62,12 +83,12 @@
       <ul class="footer__social-links">
         <li class="footer__social-link-item">
           <a href="https://github.com/qsenych/" title="Link to Github Profile">
-            <img src="./images/github.svg" class="footer__social-image" alt="Github">
+            <img src="../images/github.svg" class="footer__social-image" alt="Github">
           </a>
         </li>
         <li class="footer__social-link-item">
           <a href=https://www.linkedin.com/in/quinn-senych/">
-            <img src="./images/linkedin.svg" title="Link to Linkedin Profile" class="footer__social-image" alt="Linkedin">
+            <img src="../images/linkedin.svg" title="Link to Linkedin Profile" class="footer__social-image" alt="Linkedin">
           </a>
         </li>
       </ul>
