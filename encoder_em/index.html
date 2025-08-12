@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" type="image/png" href="../images/favicon.png" />
+
+  <title>
+    Quinn Senych | Encoder Emulator project
+  </title>
+
+  <meta name="description" content="Add small description of yourslef.">
+  <!-- Add some coding keywords below, Ex: (React, CSS etc) -->
+  <meta name="keywords" content="Quinn Senych, firmware developer, C, electrical design" />
+  <link rel="stylesheet" href="index.css" />
+</head>
+
+<body>
+  <!-- ***** Header ***** -->
+
+  <header class="header" role="banner" id="top">
+    <div class="row header__row">
+      <h1 class="heading-primary" style="font-size: var(--font-size-medium); margin: 0;">
+        Encoder Emulator
+      </h1>
+      <nav class="nav" role="navigation">
+        <ul class="nav__items">
+          <li class="nav__item nav__item--dropdown">
+            <a href="../#work" class="nav__link">Projects ▾</a>
+            <ul class="dropdown">
+              <li><a href="../f1tenth" class="dropdown__link">F1tenth</a></li>
+              <li><a href="../dashboard" class="dropdown__link">Dashboard</a></li>
+              <li><a href="../encoder_em" class="dropdown__link">Encoder Emulator</a></li>
+              <li><a href="../img_transform" class="dropdown__link">Image Transformer</a></li>
+            </ul>
+          </li>
+          <li class="nav__item"><a href="../#about" class="nav__link">About</a></li>
+          <li class="nav__item"> <a href="../" class="nav__link">Home</a> </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main role="main">
+
+  <section class="Project overview" id="project">
+    <div class="row">
+      <h3>Overview</h3>
+      <div class="overview_body">
+        <p>
+        When our team hit a critical roadblock before a competition, I developed an encoder emulator to keep progress moving.  Our motor controller required Hall A/B/C signals to even attempt calibration, but our motor only had a sin/cos encoder installed.  Installing Hall sensors would have voided the motor warranty and violated competition rules, and replacing the controller wasn’t in the budget.  Instead, I built a firmware and hardware solution to emulate the missing Hall signals from the existing encoder.
+        </p>
+
+        <h3>Hardware Overview</h3>
+        <img src="./images/encoder_em_prototype.jpg" class="drawing" alt="voltage divider drawing"/>
+        <p>
+        The emulator was implemented on an STM32 “Bluepill” development board mounted to a protoboard.  Input from the sin/cos encoder was processed through a 1.6&nbsp;kΩ / 5.5&nbsp;kΩ resistor voltage divider 
+        </p>
+
+        <img src="./images/encem_volt_div.png" class="drawing" alt="voltage divider drawing"/>
+        </p>
+        and filtered with 20&nbsp;nF of capacitance.  The output stage used an open-collector FET circuit tied to 12&nbsp;V to match the motor controller’s expected electrical interface.  
+        </p> 
+        <img src="./images/encem_open_collector.png" class="drawing" alt="voltage divider drawing"/>
+        <p>
+        Hall signal patterns were hardcoded based on our understanding of PMAC motor operation. The sequence repeats every 360 electrical degrees, which for our 10-pole-pair motor corresponds to 36 mechanical degrees.
+        </p>
+
+        <h3>Firmware Design</h3>
+        <p>
+        The firmware generated Hall A/B/C outputs directly from the simulated rotor position, following a predefined six-state table.  While the sequence itself was straightforward, ensuring signal integrity proved challenging.  I implemented both hardware and software filtering to smooth out the output and reduce noise that could cause the controller to reject the signal.
+        </p>
+
+        <h3>Testing & Outcome</h3>
+        <p>
+        The emulator successfully convinced the motor controller to begin calibration and produce motion, buying us time until a replacement controller could be sourced.  However, the emulated signals did not produce race-ready performance, tuning was poor, and high-speed stability was lacking.  Ultimately, the project demonstrated quick, practical problem-solving under tight constraints, even if the final fix required new hardware.
+        </p>
+
+      <a href="https://github.com/qsenych/a_speed-red-calf-racing" target="_blank" class="btn">View Repo</a>
+    </div>
+  </section>
+
+  <!-- ***** Footer ***** -->
+
+  <footer role="contentinfo" class="footer">
+    <div class="row">
+      <ul class="footer__social-links">
+        <li class="footer__social-link-item">
+          <a href="https://github.com/qsenych/" title="Link to Github Profile">
+            <img src="../images/github.svg" class="footer__social-image" alt="Github">
+          </a>
+        </li>
+        <li class="footer__social-link-item">
+          <a href="https://www.linkedin.com/in/quinn-senych/" target="_blank">
+            <img src="../images/linkedin.svg" title="Link to Linkedin Profile" class="footer__social-image" alt="Linkedin">
+          </a>
+        </li>
+      </ul>
+    </div>
+  </footer>
+  
+  <script src="./index.js"></script>
+</body>
+
+</html>

@@ -31,6 +31,7 @@
             <ul class="dropdown">
               <li><a href="../f1tenth" class="dropdown__link">F1tenth</a></li>
               <li><a href="../dashboard" class="dropdown__link">Dashboard</a></li>
+              <li><a href="../encoder_em" class="dropdown__link">Encoder Emulator</a></li>
               <li><a href="../img_transform" class="dropdown__link">Image Transformer</a></li>
             </ul>
           </li>
@@ -47,27 +48,24 @@
     <div class="row">
       <h3>Overview</h3>
       <p>
-        For context this was built for my design team <a href="https://www.ubcthunderbikes.com" target="_blank">UBC ThunderBikes</a>. The target of the design team is to build an electric motorcycle to race against other student teams.
-
-        For our 2024 iteration I was tasked with creating a dashboard to display real time diagnostic information in addition to supplying the rider with all necessary information while racing. 
-
+        For <a href="https://www.ubcthunderbikes.com" target="_blank">UBC ThunderBikes’</a> 2024 race bike, I was tasked with designing and building a new dashboard. The goal was to give the rider real-time diagnostic data and essential race information in a simple, reliable format, all while withstanding the demands of competition.
       </p>
       <h3>Part Selection</h3>
       <p>
-        With the end goal of designing a custom PCB with board mounted switches to simplify assembly, I sought out a microcontroller. As the team has used STM32's for all previous projects and that was the tech stack I was familiar with, it was decided I would stick within the STM32 ecosystem.
+        The long-term plan was to create a custom PCB with board-mounted switches to simplify assembly. Since our team had extensive experience with STM32 microcontrollers, and I was already comfortable with their ecosystem, I decided to stick with STM32 for faster development and easier integration.
       </p>
       <p>
-        Because this was my first time writing anything similar to this, I wasnted to simplify the development as much as possible and leave room for optimizations later. And because it's easier to change the firmware than the hardware, I selected a display on the smaller size (3.5", 320x240) but still with a 24-bit parallel interface with the intention of only dealing with a single frame buffer which incorporates the entire screen. So, my requirements for selecting a microcontroller were that it must have enough storage to buffer 1 full screen of data, ideally in memory, not flash (for speed). Also trying to maximize use of the STM32's extensive HAL, I decided using the built in LCD-TFT controller would simplify the project not having to integrate another 3rd party library. So now we were looking at finding an STM32 with a lot of memory and support for the LTDC. 
+        To keep things manageable for my first dashboard project, I opted for a small (3.5", 320×240) parallel-interface display. This allowed me to work with a single frame buffer in memory, simplifying the graphics pipeline. I chose an STM32 with enough RAM to store a full screen in memory and with built-in LTDC (LCD-TFT Controller) support, avoiding the complexity of third-party display drivers.
       </p>
       <p>
-        We selected LVGL as the graphics library for its extensive documentation and examples that showed similar applications to ours.
+        For the UI, I used the LVGL graphics library, which had great documentation and examples of similar embedded applications.
       </p>
       <h3>Prototype creation </h3>
       <p>
-        Despite the end goal being a PCB, I wanted to ensure my tech stack of LVGL -> STM32 LTDC -> parallel display actually worked before I spent time and money desinging a PCB for this. THerefore I selected an STM32 with a nucleo development board (STM32F767ZI), I then found a small breakout module for the ribbon cable (pictured below) so I could do all the soldering myself.
+        Before committing to a PCB, I wanted to validate the entire stack, LVGL → STM32 LTDC → parallel display, on a breadboard setup. I used an STM32F767ZI Nucleo eval board and a breakout module for the display’s ribbon cable so I could hand-solder all the connections myself.
       </p>
-      <h3>Problems</h3>
-        In the first prototype I soldered the ~30 or so wires from the display to the microcontroller.
+      <h3>Challenges</h3>
+        The first prototype required soldering ~30 fine-pitch wires from the display to the microcontroller. This was time-consuming and introduced a lot of potential for signal noise and miswiring, but it also gave me valuable hands-on experience with hardware bring-up and troubleshooting display timing issues.
       <p>
 
       </p>
