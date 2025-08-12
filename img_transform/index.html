@@ -22,7 +22,7 @@
   <header class="header" role="banner" id="top">
     <div class="row header__row">
       <h1 class="heading-primary" style="font-size: var(--font-size-medium); margin: 0;">
-        Image transformer
+        Image Rotation Detection and Correction
       </h1>
       <nav class="nav" role="navigation">
         <ul class="nav__items">
@@ -48,13 +48,28 @@
     <div class="row">
       <h3>Overview</h3>
       <div class="overview_body">
+
         <p>
-          This was originally a project for a software construction class, however I really enjoyed the problem solving process and was pleased with my solution.         
+        This project began as part of a software construction course but quickly became a favorite of mine due to the fascinating challenge it presented: automatically detecting and correcting the rotation of an input image. The program targets images skewed by more than 2 degrees, a common issue in scanned documents or photos, that can severely affect readability and further processing like OCR.
         </p>
         <p>
-          This project uses Java and takes an input image which is offset by greater than 2 degrees, it then detects the rotation angle and returns a fixed image. 
+        To tackle this, I implemented a multi-step image processing pipeline that first transforms the spatial image data into the frequency domain using a Fast Fourier Transform (FFT) with the Tukey-Cooley algorithm. This frequency spectrum highlights the dominant directional patterns present in the image, such as text lines or edges (a visualization pictured below).
         </p>
-        <a href="https://github.com/qsenych/a_speed-red-calf-racing" target="_blank" class="btn">View Repo</a>
+        <img src="./images/fft_output.png" class="drawing" alt="fft output"/>
+        <p>
+        Next, the algorithm applies a threshold to the frequency spectrum to isolate the strongest frequency components, filtering out noise and less relevant data. Then, to extract the dominant orientations from these peaks, I use a Hough transform, a classic computer vision technique for detecting lines and shapes. By analyzing the angles of these detected lines, the program estimates the global rotation skew of the image.
+        </p>
+        <p>
+        Once the skew angle is determined, an affine transformation is applied to rotate the image back to its correct alignment. This method proved effective for correcting rotations ranging from subtle ±2 degrees to more significant tilts up to ±15 degrees during testing.
+        </p>
+        <p>
+        This project was a hands-on introduction to key image processing and computer vision algorithms, FFT, thresholding, and Hough transforms, and deepened my understanding of how frequency-domain analysis can complement spatial-domain techniques for robust feature detection. Structuring the code modularly to separate these steps also taught me valuable lessons about software design in complex algorithmic projects.
+        </p>
+        <p>
+        Though it started as a course assignment, this work helped me develop both my algorithmic thinking and practical coding skills in image processing. 
+        </p>
+
+        <a href="https://github.com/qsenych/image_tranformer-CPEN221-assignment" target="_blank" class="btn">View Repo</a>
     </div>
   </section>
 
