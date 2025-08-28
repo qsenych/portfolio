@@ -48,7 +48,7 @@
     <div class="row">
       <h3>Overview</h3>
       <p>
-        For an F1TENTH-style autonomous racing challenge, I developed a <strong>custom reactive control algorithm</strong> for a 1/10th-scale autonomous race car. The goal was to navigate a tight, walled track head-to-head against another car, making split-second steering and speed decisions based purely on live LiDAR data.  In the final head-to-head tournament, our vehicle placed <strong>2nd in the class</strong>, demonstrating competitive performance despite unpredictable racing conditions.
+        For an F1TENTH-style autonomous racing challenge, I worked in a team of 4 to develop a custom reactive control algorithm for a 1/10th-scale autonomous race car. The goal was to navigate a tight, walled track head-to-head against another car. Most other teams used some version of a disparity extension algorithm, however, our teamed developed a novel idea. In the final head-to-head tournament, our vehicle placed 2nd in the class, proving the novel algorithm was a solid fit, but disparity extension could be tuned to be better.
       </p>
 
       <h3>Hardware &amp; Software Stack</h3>
@@ -58,7 +58,7 @@
 
       <h3>Algorithm Overview</h3>
       <p>
-        The algorithm rebuilt the car’s understanding of the track with every LiDAR scan.  First, an occupancy grid was generated in the car’s <code>base_link</code> frame from raw LiDAR data.  To account for the vehicle’s width, all occupied cells were expanded, with the expansion reduced adaptively if no path was initially found.  Each unoccupied cell was assigned a weight based on its distance from the nearest wall, with safer cells receiving lower weights.  The lowest-weight reachable point within a forward range was then selected as the target point.  Using an A* path planner, the car generated a path biased toward these lower-weight cells, encouraging safer and more central navigation.  As a failsafe, if no path could be found, the vehicle’s speed was set to zero and steering maintained its last valid value, with a killswitch thread allowing an instant stop when necessary.
+        The algorithm is a reactive algorithm, meaning it rebuilt the car’s understanding of the track with every LiDAR scan. First, the lidar data is pre-processed, ensuring only no invalid values interfere with the algorithm. Then, an occupancy grid was generated.  To account for the vehicle’s width while driving, all cells in the occupancy grid determined to be "occupied" were expanded.  Each unoccupied cell was assigned a weight based on its distance from the nearest wall, with safer cells receiving lower weights. This biases the path towards the centre of the track. The lowest-weight reachable point within a forward range was then selected as the target point. Using an A* path planner, the car generated a path biased toward these lower-weight cells, encouraging safer and more central navigation.  As a failsafe, if no path could be found, the vehicle’s speed was set to zero and steering maintained its last valid value, with a killswitch thread allowing an instant stop when necessary.
       </p>
 
       <h3>Key Challenges &amp; Solutions</h3>
@@ -68,7 +68,7 @@
 
       <h3>Results &amp; Learnings</h3>
       <p>
-        The car achieved <strong>2nd place</strong> in the class tournament, showing competitive lap speeds and reliable obstacle handling without relying on a pre-mapped track.  The approach was strong in handling both static and moving obstacles in real time, even under noisy sensor conditions.  However, the lack of a braking-distance model meant that at higher speeds, the car could outrun its own reaction time.  The track-center weighting also conflicted with optimal racing lines, limiting maximum lap speed.  In hindsight, I would introduce a velocity-aware braking model and simplify the planner to a well-tuned reactive algorithm such as disparity extension, which would likely improve both reliability and top speed in a racing environment.
+        The car achieved 2nd place in the class tournament, showing competitive lap speeds and reliable obstacle handling without relying on a pre-mapped track. The approach was strong in handling both static and moving obstacles in real time, even under noisy sensor conditions. However, the lack of a braking-distance model meant that at higher speeds, the car could outrun its own reaction time. The track-center weighting also conflicted with optimal racing lines, limiting maximum lap speed. In hindsight, I believe a well tuned simpler algorithm such as disparity extension has a faster cieling than this algorithm, however, this process pushed my skills in creative problem solving and novel algorithm development, pushing me to be a better engineer.
       </p>
       
       
