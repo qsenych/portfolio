@@ -49,13 +49,13 @@
       <h3>Overview</h3>
       <div class="overview_body">
         <p>
-        When our team hit a critical roadblock before a competition, I developed an encoder emulator to keep progress moving.  Our motor controller required Hall A/B/C signals to even attempt calibration, but our motor only had a sin/cos encoder installed.  Installing Hall sensors would have voided the motor warranty and violated competition rules, and replacing the controller wasn’t in the budget.  Instead, I built a firmware and hardware solution to emulate the missing Hall signals from the existing encoder.
+        When our team hit a critical roadblock before a competition milestone deadline, I developed an encoder emulator to keep progress moving.  Our motor controller required Hall A/B/C signals to even attempt calibration, but our motor only had a sin/cos encoder installed.  Installing Hall sensors would have voided the motor warranty and violated competition rules, and replacing the controller was going to take too long.  Instead, I built a firmware and hardware solution to emulate the missing Hall signals from the existing encoder.
         </p>
 
         <h3>Hardware Overview</h3>
         <img src="./images/encoder_em_prototype.jpg" class="drawing" alt="voltage divider drawing"/>
         <p>
-        The emulator was implemented on an STM32 “Bluepill” development board mounted to a protoboard.  Input from the sin/cos encoder was processed through a 1.6&nbsp;kΩ / 5.5&nbsp;kΩ resistor voltage divider 
+        The emulator was implemented on an STM32 “Bluepill” development board mounted to a protoboard. Input from the sin/cos encoder was processed through a 1.6&nbsp;kΩ / 5.5&nbsp;kΩ resistor voltage divider 
         </p>
 
         <img src="./images/encem_volt_div.png" class="drawing" alt="voltage divider drawing"/>
@@ -74,7 +74,7 @@
 
         <h3>Testing & Outcome</h3>
         <p>
-        The emulator successfully convinced the motor controller to begin calibration and produce motion, buying us time until a replacement controller could be sourced.  However, the emulated signals did not produce race-ready performance, tuning was poor, and high-speed stability was lacking.  Ultimately, the project demonstrated quick, practical problem-solving under tight constraints, even if the final fix required new hardware.
+        The emulator successfully convinced the motor controller to begin calibration and produce motion, buying us time until a replacement controller could be sourced.  However, the emulated signals did not produce race-ready performance, tuning was poor, and high-speed stability was lacking.  Ultimately, the project demonstrated quick, creative, problem-solving under tight constraints, even if the final fix required new hardware.
         </p>
 
       <a href="https://github.com/qsenych/encoder_emulator_tbikes" target="_blank" class="btn">View Repo</a>

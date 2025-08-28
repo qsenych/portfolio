@@ -48,7 +48,7 @@
     <div class="row">
       <h3>Overview</h3>
       <p>
-        For <a href="https://www.ubcthunderbikes.com" target="_blank">UBC ThunderBikes’</a> 2024 race bike, I was tasked with designing and building a new dashboard. The goal was to give the rider real-time diagnostic data and essential race information in a simple, reliable format, all while withstanding the demands of competition.
+        For <a href="https://www.ubcthunderbikes.com" target="_blank">UBC ThunderBikes’</a> 2024 race bike, I was tasked with designing and building a new dashboard. The goal was to give the rider real-time diagnostic data and essential race information in a simple, reliable format for competition and integration debugging.
       </p>
       <h3>Part Selection</h3>
       <p>
@@ -62,10 +62,10 @@
       </p>
       <h3>Prototype creation </h3>
       <p>
-        Before committing to a PCB, I wanted to validate the entire stack, LVGL → STM32 LTDC → parallel display, on a breadboard setup. I used an STM32F767ZI Nucleo eval board and a breakout module for the display’s ribbon cable so I could hand-solder all the connections myself.
+        Before committing to a PCB, I wanted to validate the entire stack, LVGL → STM32 LTDC → parallel display, on a breadboard setup. I used an STM32F767ZI Nucleo eval board and a breakout module for the display’s FFC cable so I could hand-solder all the connections myself.
       </p>
       <h3>Challenges</h3>
-        The first prototype required soldering ~30 fine-pitch wires from the display to the microcontroller. This was time-consuming and introduced a lot of potential for signal noise and miswiring, but it also gave me valuable hands-on experience with hardware bring-up and troubleshooting display timing issues.
+        The first prototype required soldering ~40 fine-pitch wires from the display to the microcontroller. This was time-consuming and introduced a lot of potential for signal noise and miswiring, but it also gave me valuable hands-on experience with hardware bring-up and troubleshooting display timing issues (Poor connections on the V-sync and H-sync wires).
       <p>
 
       </p>
