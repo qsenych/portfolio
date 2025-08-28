@@ -50,20 +50,21 @@
       <div class="overview_body">
 
         <p>
-        This project began as part of a software construction course but quickly became a favorite of mine due to the fascinating challenge it presented: automatically detecting and correcting the rotation of an input image. The program targets images skewed by more than 2 degrees, a common issue in scanned documents or photos, that can severely affect readability and further processing like OCR.
+        This project began as part of a software construction course but quickly became a favorite of mine due to the fascinating challenge it presented: automatically detecting and correcting the rotation of an input image. The program targets images skewed or slightly rotated, a common issue in scanned documents or photos, that can severely affect readability and further processing.
         </p>
         <p>
-        To tackle this, I implemented a multi-step image processing pipeline that first transforms the spatial image data into the frequency domain using a Fast Fourier Transform (FFT) with the Tukey-Cooley algorithm. This frequency spectrum highlights the dominant directional patterns present in the image, such as text lines or edges (a visualization pictured below).
+        To tackle this, I implemented an image processing pipeline that first transforms the spatial image data into the frequency domain using a Fast Fourier Transform (FFT) with the Tukey-Cooley algorithm. The output frequency spectrum highlights the dominant directional patterns present in the image, such as text lines or edges (a visualization pictured below).
         </p>
         <img src="./images/fft_output.png" class="drawing" alt="fft output"/>
         <p>
-        Next, the algorithm applies a threshold to the frequency spectrum to isolate the strongest frequency components, filtering out noise and less relevant data. Then, to extract the dominant orientations from these peaks, I use a Hough transform, a classic computer vision technique for detecting lines and shapes. By analyzing the angles of these detected lines, the program estimates the global rotation skew of the image.
+        Next, the algorithm applies a threshold to the frequency spectrum to isolate the strongest frequency components, filtering out noise and less relevant data. Then, to extract the dominant orientations from these peaks, I use a Hough transform, a classic computer vision technique for detecting lines and shapes. By analyzing the angles of these detected lines, the program estimates the rotation angle of the image.
         </p>
         <p>
-        Once the skew angle is determined, an affine transformation is applied to rotate the image back to its correct alignment. This method proved effective for correcting rotations ranging from subtle ±2 degrees to more significant tilts up to ±15 degrees during testing.
+        Once the skew angle is determined, a transformation is applied to rotate the image back to its correct alignment. This method proved effective for correcting almost any rotations in the image.
         </p>
+        <img src="./images/text_rotation.png" class="drawing" alt="image rotation output"/>
         <p>
-        This project was a hands-on introduction to key image processing and computer vision algorithms, FFT, thresholding, and Hough transforms, and deepened my understanding of how frequency-domain analysis can complement spatial-domain techniques for robust feature detection. Structuring the code modularly to separate these steps also taught me valuable lessons about software design in complex algorithmic projects.
+        This project was a hands-on introduction to key image processing and computer vision algorithms, FFT, thresholding, and Hough transforms, and deepened my understanding of how frequency-domain analysis can assist in image processing. This was also a valuable introduction to OOP techniques and software best practices.
         </p>
         <p>
         Though it started as a course assignment, this work helped me develop both my algorithmic thinking and practical coding skills in image processing. 
